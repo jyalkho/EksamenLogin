@@ -1,5 +1,7 @@
 from flask import Flask, request, render_template
 from flask_mysqldb import MySQL
+import bcrypt
+
 
 app = Flask(__name__)
 app.config.update(
@@ -26,23 +28,33 @@ def signup_page():
 def login():
     user = request.args.get("user")
     password = request.args.get("pass")
-    if user == "admin" and password == "1234":
+    if not (user and password):
+        return render_template("login.html")
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT password FROM users WHERE username = %s", (user,))
+    result = cur.fetchone()
+    cur.close()
+    if result and bcrypt.checkpw(password.encode('utf-8'), result[0].encode('utf-8')):
         return "<h2>✅ Velkommen!</h2>"
-    if user or password:
-        return "<h2>❌ Feil brukernavn eller passord</h2>"
-    return render_template("login.html")
+    return "<h2>❌ Feil brukernavn eller passord</h2>"
 
 @app.route("/signup")
 def signup():
     user = request.args.get("user")
     password = request.args.get("pass")
-    if not (user and password):
+    
+    
+    if not (user and password    ):
         return "<h2>❌ Må fylle ut begge felt</h2>"
     cur = mysql.connection.cursor()
-    cur.execute("INSERT INTO users (username, password) VALUES (%s, %s)", (user, password))
+    cur.execute("INSERT INTO users (username, password    ) VALUES (%s, %s    )", (user, password, hashed_password.decode('utf-8')    ))
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+    if cur.fetchone():
+        cur.close()
+        return "<h2>❌ Brukernavn finnes allerede</h2>"
     mysql.connection.commit()
     cur.close()
     return f"<h2>✅ Registrert! Velkommen {user}</h2>"
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    app.run(debug=True, host="0.0.0.0", port=5000) 
