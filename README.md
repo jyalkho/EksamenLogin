@@ -53,3 +53,13 @@ SELECT * FROM users;
 
 Slett alle brukere:
 DELETE FROM users;
+
+
+
+## 📑 Lover og regler
+
+Jeg følger personopplysningsloven (GDPR) når jeg lager denne appen. Det betyr at jeg passer på at brukernes data, som brukernavn og passord, behandles trygt og ikke deles med andre. Jeg anbefaler å lagre passord på en sikker måte, for eksempel ved å bruke kryptering eller hashing, slik at ingen kan lese dem direkte.
+
+Når du bruker appen min, godtar du at informasjonen du legger inn blir lagret i databasen.
+
+Appen min er laget med åpen kildekode-verktøy som Flask, mysql-connector-python og mysqlclient.
