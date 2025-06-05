@@ -53,3 +53,30 @@ SELECT * FROM users;
 
 Slett alle brukere:
 DELETE FROM users;
+
+
+## Arbeidslogg
+
+- **Onsdag:** Startet prosjektet, satte opp Flask og database, laget grunnleggende innlogging og registrering.
+- **Torsdag:** La til sikker lagring av passord med bcrypt, HTML-filer for innlogging og registrering.
+- **Fredag:** Testet funksjonene, forbedret brukervennlighet og dokumentasjon, til slutt spurte jeg rundt om oppgaven min.
+
+Totalt har jeg jobbet med prosjektet fra onsdag til fredag.
+
+## Brukertest-tilbakemeldinger
+RObin 1:
+"Det hadde vært fint om jeg kunne legge til mobilnummer når jeg registrerer meg.
+
+Hogir:
+"Jeg vil ha en funksjon for å endre passord hvis jeg har glemt det. Kanskje det kan sendes til e-post eller SMS for å tilbakestille.
+
+leandro:
+Det hadde vært oversiktlig med en side hvor jeg kan se og oppdatere min profil, for eksempel endre brukernavn eller mobilnummer.
+
+## 📑 Lover og regler
+
+Jeg følger personopplysningsloven (GDPR) når jeg lager denne appen. Det betyr at jeg passer på at brukernes data, som brukernavn og passord, behandles trygt og ikke deles med andre. Jeg anbefaler å lagre passord på en sikker måte, for eksempel ved å bruke kryptering eller hashing, slik at ingen kan lese dem direkte.
+
+Når du bruker appen min, godtar du at informasjonen du legger inn blir lagret i databasen.
+
+Appen min er laget med åpen kildekode-verktøy som Flask, mysql-connector-python og mysqlclient.
