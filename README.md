@@ -83,4 +83,10 @@ Jeg følger personopplysningsloven (GDPR) når jeg lager denne appen. Det betyr 
 
 Når du bruker appen min, godtar du at informasjonen du legger inn blir lagret i databasen.
 
+
+Noe av koden som brukes i dette prosjektet er utviklet med hjelp fra ChatGPT (OpenAI). Jeg har brukt ChatGPT til å få hjelp med blant annet:
+
+Sikker lagring av passord (hashing)
+App.py
+
 Appen min er laget med åpen kildekode-verktøy som Flask, mysql-connector-python og mysqlclient.
