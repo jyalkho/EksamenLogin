@@ -42,12 +42,12 @@ def login():
 def signup():
     user = request.args.get("user")
     password = request.args.get("pass")
+    mobile = request.args.get("mobile")
     
-    
-    if not (user and password    ):
+    if not (user and password and mobile):
         return "<h2>❌ Må fylle ut begge felt</h2>"
     cur = mysql.connection.cursor()
-    cur.execute("INSERT INTO users (username, password    ) VALUES (%s, %s    )", (user, password, hashed_password.decode('utf-8')    ))
+    cur.execute("INSERT INTO users (username, password, mobile) VALUES (%s, %s, %s)", (user, password, mobile))
     hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
     if cur.fetchone():
         cur.close()
